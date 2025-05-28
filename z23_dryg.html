@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 23</title>
+<script>
+// Funkcja licząca długość drabiny (hipotenuza) z twierdzenia Pitagorasa
+function dlugosc_dry(d_dry, x_dry) {
+  return Math.sqrt(d_dry*d_dry + x_dry*x_dry);
+}
+
+// Funkcja licząca kąt nachylenia w stopniach (arcustangens d/x)
+function kat_dry(d_dry, x_dry) {
+  // Math.atan zwraca wynik w radianach
+  var radiany = Math.atan(d_dry / x_dry);
+  var stopnie = radiany * (180 / Math.PI);
+  return stopnie;
+}
+
+function licz() {
+  var d_dry = parseFloat(document.getElementById('d_dana_dry').value);
+  var x_dry = parseFloat(document.getElementById('x_dana_dry').value);
+
+  if (isNaN(d_dry) || isNaN(x_dry) || d_dry <= 0 || x_dry <= 0) {
+    alert('Proszę podać poprawne i dodatnie wartości!');
+    return;
+  }
+
+  var dlugosc = dlugosc_dry(d_dry, x_dry);
+  var kat = kat_dry(d_dry, x_dry);
+
+  document.getElementsByName('dlugosc')[0].value = dlugosc.toFixed(2);
+  document.getElementsByName('kat')[0].value = kat.toFixed(2);
+
+  document.getElementById('wynik_dlugosc_dry').innerHTML = "Długość drabiny: " + dlugosc.toFixed(2) + " m";
+  document.getElementById('wynik_kat_dry').innerHTML = "Kąt nachylenia: " + kat.toFixed(2) + "°";
+}
+</script>
+</head>
+<body>
+<h2>Oblicz długość drabiny i kąt nachylenia</h2>
+
+<label for="d_dana_dry">D - wysokość oparcia drabiny [m]: </label>
+<input id="d_dana_dry" type="text"><br><br>
+
+<label for="x_dana_dry">X - odległość od muru [m]: </label>
+<input id="x_dana_dry" type="text"><br><br>
+
+<button onclick="licz()">Oblicz</button><br><br>
+
+Długość drabiny [m]: <input type="text" name="dlugosc" readonly><br><br>
+Kąt nachylenia [°]: <input type="text" name="kat" readonly><br><br>
+
+<div id="wynik_dlugosc_dry" style="font-weight:bold; color:green;"></div>
+<div id="wynik_kat_dry" style="font-weight:bold; color:blue;"></div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Zadanie 36 - Drygalski</title>
+</head>
+<body>
+<script>
+  var liczbaStr = prompt("Podaj liczbę:", "");
+  var liczba = parseInt(liczbaStr);
+
+  if (isNaN(liczba)) {
+    document.write("<font color=\"black\" size=\"3\">Nie podałeś poprawnej liczby!</font>");
+  } else {
+    if (liczba % 2 === 0) {
+      // liczba parzysta, czerwony napis, wielkość 3
+      document.write("<font color=\"red\" size=\"3\">Liczba jest parzysta</font>");
+    } else {
+      // liczba nieparzysta, srebrny napis, wielkość 5
+      document.write("<font color=\"silver\" size=\"5\">Liczba jest nieparzysta</font>");
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 25</title>
+<script>
+/*
+  Autor: Drygalski
+  Zadanie 25 - Obliczanie ilości atomów pierwiastka promieniotwórczego po czasie t
+*/
+
+function zadanie25() {
+  // 1) Wczytaj dane z promptów
+  var No_dry = parseFloat(prompt("Podaj początkową ilość atomów No:"));
+  var t_dry = parseFloat(prompt("Podaj czas t (w latach):"));
+  var T12_dry = parseFloat(prompt("Podaj okres połowicznego zaniku T1/2 (w latach):"));
+
+  // Sprawdzenie poprawności danych
+  if (isNaN(No_dry) || isNaN(t_dry) || isNaN(T12_dry) || No_dry <= 0 || t_dry < 0 || T12_dry <= 0) {
+    alert("Proszę podać poprawne liczby. No > 0, t >= 0, T1/2 > 0");
+    return;
+  }
+
+  // 2) Obliczenia
+  // Stała rozpadu lambda (λ)
+  // λ = ln(2) / T1/2
+  var lambda_dry = Math.log(2) / T12_dry;
+
+  // Ilość atomów po czasie t: N = No * e^(-λ * t)
+  var N_dry = No_dry * Math.pow(Math.E, -lambda_dry * t_dry);
+
+  // 3) Wyświetlenie wyników i danych z formatowaniem oraz stylizacją
+  var output = "";
+
+  output += `<p style="font-size:18px; color:#003366;">Wczytane dane:</p>`;
+  output += `<p style="font-size:16px; color:#004d00;">No = ${No_dry.toFixed(2)} [sztuk]</p>`;
+  output += `<p style="font-size:16px; color:#004d00;">t = ${t_dry.toFixed(2)} [lat]</p>`;
+  output += `<p style="font-size:16px; color:#004d00;">T1/2 = ${T12_dry.toFixed(2)} [lat]</p>`;
+
+  output += `<hr>`;
+
+  output += `<p style="font-size:18px; color:#800000;">Wyniki obliczeń:</p>`;
+  output += `<p style="font-size:16px; color:#990000;">Stała rozpadu &lambda; = ${lambda_dry.toFixed(7)} [1/rok]</p>`;
+  output += `<p style="font-size:16px; color:#990000;">Ilość atomów po czasie t: N = ${N_dry.toFixed(2)} [sztuk]</p>`;
+
+  document.getElementById('wyniki_dry').innerHTML = output;
+}
+</script>
+</head>
+<body>
+<h2>Zadanie 25 - Obliczanie ilości atomów pierwiastka promieniotwórczego</h2>
+
+<button onclick="zadanie25()">Wykonaj zadanie</button>
+
+<div id="wyniki_dry" style="margin-top:20px;"></div>
+
+<p style="font-style: italic; color: gray; margin-top: 30px;">
+  Użyj danych do testów:<br>
+  - Węgiel C14: T1/2 = 5700 lat<br>
+  - Rad (do znalezienia w internecie, np. około 1600 lat)<br>
+</p>
+</body>
+</html>

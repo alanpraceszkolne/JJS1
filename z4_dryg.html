@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>Teoria JavaScript - Drygalski</title>
+    <script type="text/javascript">
+        function okno_zamknij_drygalski() {
+            window.close();
+        }
+    </script>
+</head>
+<body>
+    <h2><b>1) Kiedy powstał JavaScript?</b></h2>
+    <p>JavaScript powstał w 1995 roku.</p>
+
+    <h2><b>2) Dlaczego jest to język skryptowy?</b></h2>
+    <p>Ponieważ jest interpretowany bezpośrednio przez przeglądarkę, bez potrzeby kompilacji.</p>
+
+    <h2><b>3) Gdzie jest wykonywany JS (klient lub serwer)?</b></h2>
+    <p>JavaScript jest wykonywany po stronie klienta (w przeglądarce).</p>
+
+    <h2><b>4) Dlaczego JS to bezpieczne narzędzie?</b></h2>
+    <p>JS działa w sandboxie przeglądarki – nie ma dostępu do systemu plików komputera.</p>
+
+    <h2><b>5) Czy jest to język obiektowy, jeśli tak to dlaczego?</b></h2>
+    <p>Tak, ponieważ pozwala na tworzenie i używanie obiektów oraz metod.</p>
+
+    <h2><b>6) Wymień zalety JS:</b></h2>
+    <p>Zaleta 1: Szybkość działania.</p>
+    <p>Zaleta 2: Współpraca z HTML i CSS.</p>
+    <p>Zaleta 3: Wsparcie przez wszystkie przeglądarki.</p>
+
+    <h2><b>7) Framework to:</b></h2>
+    <p>Gotowy zestaw narzędzi i bibliotek ułatwiających pisanie kodu.</p>
+
+    <h2><b>8) Do aplikacji mobilnych można użyć Framework:</b></h2>
+    <p>Tak, np. React Native, Ionic.</p>
+
+    <h2><b>9) Aplikacje responsywne to:</b></h2>
+    <p>Strony dostosowujące się automatycznie do rozdzielczości urządzenia.</p>
+
+    <h2><b>10) Kod:</b></h2>
+    <code>
+        &lsaquo;input type="button" name="przycisk" value="Nowa Strona" onclick="WinOpen(' ')"&rsaquo;
+    </code>
+    <p>Ten przycisk uruchamia funkcję `WinOpen()`, która otwiera nową stronę w osobnym oknie.</p>
+
+    <h2><b>11) Kod:</b></h2>
+    <code>
+        window.open("obraz.html","okienko","toolbar=no,directories=no,menubar=no,height=280,width=160,top=200,left=200");
+    </code>
+    <p>Otwiera nowe okno z plikiem obraz.html, bez paska narzędzi i menu, o określonych wymiarach i położeniu.</p>
+
+    <ul>
+        <li><b>toolbar=no</b> – ukrywa pasek narzędzi przeglądarki</li>
+        <li><b>directories=no</b> – ukrywa przyciski katalogów</li>
+        <li><b>menubar=no</b> – ukrywa menu przeglądarki</li>
+        <li><b>height=280</b> – ustawia wysokość okna</li>
+        <li><b>width=160</b> – ustawia szerokość okna</li>
+        <li><b>top=200</b> – ustawia odległość od góry ekranu</li>
+        <li><b>left=200</b> – ustawia odległość od lewej krawędzi ekranu</li>
+    </ul>
+
+    <h2><b>12) Instrukcja window.close()</b></h2>
+    <p>Powoduje zamknięcie aktualnie otwartego okna, jeśli zostało otwarte przez JavaScript.</p>
+
+    <input type="button" value="Zamknij okno" onclick="okno_zamknij_drygalski()">
+</body>
+</html>

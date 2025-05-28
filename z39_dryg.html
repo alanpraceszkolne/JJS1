@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+       <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Zadanie 39</title>
+    </head>
+    <body>
+        <h1 style="color:green;">MENU</h1>
+        <p style="color:red;"><b>1 - CZERWONY</b></p>
+        <p style="color:blue;"><b>2 - NIEBIESKI</b></p>
+        <button onclick="fun_dry()">Oblicz</button>
+    
+        <script>
+            function fun_dry() {
+                var x_dry = prompt("Podaj kolor (1, 2, czerwony, niebieski):", "").toLowerCase();
+    
+                if (x_dry === "1" || x_dry === "czerwony") {
+                    document.write('<font color="red" size="7"><b>Wczytałeś kolor czerwony</b></font><br>');
+                } else if (x_dry === "2" || x_dry === "niebieski") {
+                    document.write('<font color="blue" size="1"><b>Wczytałeś kolor niebieski</b></font><br>');
+                } else {
+                    document.write('<font color="black" size="4"><b>Nieprawidłowy wybór</b></font><br>');
+                }
+            }
+        </script>
+    </body>
+    </html>

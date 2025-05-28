@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Drygalski - Zadanie 9</title>
+  <script type="text/javascript">
+    function show_prompt_dryg() {
+      var name = prompt("Napisz imię", "Imię Nazwisko");
+      if (name != null && name != "") {
+        document.body.innerHTML = "<p style='font-weight:bold; color:blue;'>Witaj " + name + "! Jak się masz?</p>";
+      } else {
+        document.body.innerHTML = "<p style='font-weight:bold; color:gray;'>Nie wpisałeś żadnej wartości.</p>";
+      }
+    }
+  </script>
+  <style>
+    b { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Drygalski - Zadanie 9 (Prompt Box)</h2>
+
+  <p><b>Zastosowanie Prompt Box:</b></p>
+  <p>
+    Jest używany, kiedy użytkownik ma wpisać coś np. zanim wejdzie w dany moduł strony, np. hasło.
+    Użytkownik po wpisaniu wartości może nacisnąć „OK.” albo „Cancel”.
+    Jeżeli użytkownik kliknie „OK.” metoda zwraca wpisaną wartość, a w przeciwnym wypadku zwraca null.
+  </p>
+
+  <input type="button" onclick="show_prompt_dryg()" value="Pokaż Prompt Box" />
+
+  <br /><br />
+  <form>
+    <input type="button" value="Zamknij okno" onclick="window.close()" />
+  </form>
+</body>
+</html>

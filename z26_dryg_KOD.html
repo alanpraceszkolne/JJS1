@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 26 - Kod</title>
+<style>
+pre {
+  background-color: #f0f0f0;
+  padding: 12px;
+  border: 1px solid #ccc;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+</style>
+</head>
+<body>
+<h2>Kod rozwiązania Zadania 26 (Drygalski)</h2>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;Drygalski - Zadanie 26&lt;/title&gt;
+&lt;script&gt;
+/*
+  Autor: Drygalski
+  Zadanie 26 - Obliczenie pola i obwodu trapezu równoramiennego
+*/
+
+function Pow_dry(a_dry, b_dry, h_dry) {
+  return ((a_dry + b_dry) / 2) * h_dry;
+}
+
+function Obw_dry(a_dry, b_dry, h_dry) {
+  var r_dry = Math.sqrt(h_dry*h_dry + Math.pow(Math.abs(a_dry - b_dry)/2, 2));
+  return a_dry + b_dry + 2*r_dry;
+}
+
+function wykonajObliczenia() {
+  var a_dry = parseFloat(document.getElementById('a_dana_dry').value);
+  var b_dry = parseFloat(document.getElementById('b_dana_dry').value);
+  var h_dry = parseFloat(document.getElementById('h_dana_dry').value);
+
+  if (isNaN(a_dry) || isNaN(b_dry) || isNaN(h_dry) || a_dry &lt;= 0 || b_dry &lt;= 0 || h_dry &lt;= 0) {
+    alert('Proszę podać poprawne, dodatnie liczby dla podstaw i wysokości.');
+    return;
+  }
+
+  var pole = Pow_dry(a_dry, b_dry, h_dry);
+  var obwod = Obw_dry(a_dry, b_dry, h_dry);
+
+  document.open();
+  document.write('&lt;h2&gt;Wyniki obliczeń trapezu równoramiennego&lt;/h2&gt;');
+  document.write('&lt;p&gt;Podstawa górna (a): ' + a_dry + '&lt;/p&gt;');
+  document.write('&lt;p&gt;Podstawa dolna (b): ' + b_dry + '&lt;/p&gt;');
+  document.write('&lt;p&gt;Wysokość (h): ' + h_dry + '&lt;/p&gt;');
+  document.write('&lt;p&gt;&lt;strong&gt;Pole trapezu: ' + pole.toFixed(2) + '&lt;/strong&gt;&lt;/p&gt;');
+  document.write('&lt;p&gt;&lt;strong&gt;Obwód trapezu: ' + obwod.toFixed(2) + '&lt;/strong&gt;&lt;/p&gt;');
+  document.write('&lt;button onclick="location.reload()"&gt;Wróć&lt;/button&gt;');
+  document.close();
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Zadanie 26 - Pole i obwód trapezu równoramiennego&lt;/h2&gt;
+&lt;form onsubmit="event.preventDefault(); wykonajObliczenia();"&gt;
+  &lt;label for="a_dana_dry"&gt;Podstawa górna (a):&lt;/label&gt;&lt;br&gt;
+  &lt;input type="number" id="a_dana_dry" step="0.01" min="0.01" required&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;label for="b_dana_dry"&gt;Podstawa dolna (b):&lt;/label&gt;&lt;br&gt;
+  &lt;input type="number" id="b_dana_dry" step="0.01" min="0.01" required&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;label for="h_dana_dry"&gt;Wysokość (h):&lt;/label&gt;&lt;br&gt;
+  &lt;input type="number" id="h_dana_dry" step="0.01" min="0.01" required&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;input type="submit" value="Oblicz pole i obwód"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body>
+</html>

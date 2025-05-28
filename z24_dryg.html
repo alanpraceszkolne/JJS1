@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 24</title>
+<script>
+function zadanie24() {
+  // 1) Wczytaj dwie liczby z prompt
+  var x1_dry = parseFloat(prompt("Podaj x1 (w stopniach):"));
+  var x2_dry = parseFloat(prompt("Podaj x2:"));
+
+  if (isNaN(x1_dry) || isNaN(x2_dry)) {
+    alert("Proszę podać poprawne liczby.");
+    return;
+  }
+
+  // 2) Wypisz wczytane dane z odstępami (5 spacji &nbsp;)
+  var wczytane = "wczytane liczby: x1=" + x1_dry + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x2=" + x2_dry;
+  document.getElementById('wczytane_dry').innerHTML = wczytane;
+
+  // 3) Obliczenia: 
+  // x1 podnosimy do potęgi x2:
+  var y1 = Math.pow(x1_dry, x2_dry);
+  // y2 = Math.sin(x1_dry) (ale x1_dry w stopniach - trzeba zamienić na radiany)
+  var rad_dry = (x1_dry * Math.PI) / 180;
+  var y2 = Math.sin(rad_dry);
+  // y3 = Math.cos(x1_dry) (tak samo w radianach)
+  var y3 = Math.cos(rad_dry);
+
+  // 4) Wyświetl y1, y2, y3 z dwoma miejscami po przecinku
+  var wyniki = "y1 = " + y1.toFixed(2) + "<br>" +
+               "y2 = " + y2.toFixed(2) + "<br>" +
+               "y3 = " + y3.toFixed(2);
+  document.getElementById('wyniki_dry').innerHTML = wyniki;
+
+  // 5) Wyświetl dodatkowo x1 w stopniach i radianach
+  var dodatkowe = "x1 w stopniach = " + x1_dry.toFixed(2) + " [stopniach]<br>" +
+                  "x1 w radianach = " + rad_dry.toFixed(2) + " [radianach]";
+  document.getElementById('dodatkowe_dry').innerHTML = dodatkowe;
+}
+</script>
+</head>
+<body>
+<h2>Zadanie 24 - Obliczenia z użyciem Math</h2>
+
+<button onclick="zadanie24()">Wykonaj zadanie</button>
+
+<p id="wczytane_dry" style="font-weight:bold;"></p>
+<p id="wyniki_dry" style="font-weight:bold; color:green;"></p>
+<p id="dodatkowe_dry" style="font-weight:bold; color:blue;"></p>
+
+</body>
+</html>

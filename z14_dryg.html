@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 14</title>
+<script>
+function rozklad_ulamka_egipskiego_trzy() {
+  var m_dryg = prompt("Podaj liczbę naturalną m (m > 0):", "");
+  m_dryg = parseInt(m_dryg);
+
+  if (isNaN(m_dryg) || m_dryg <= 0) {
+    document.write("Niepoprawna wartość m. Podaj liczbę naturalną większą od 0.");
+    return;
+  }
+
+  // Najpierw rozkład na dwa ułamki
+  var u1 = m_dryg + 2;
+  var u2 = m_dryg * (m_dryg + 2);
+
+  // Następnie rozkładamy drugi ułamek (1/u2) na dwa ułamki:
+  var u21 = u2 + 1;
+  var u22 = u2 * (u2 + 1);
+
+  document.write("<b>Ułamek egipski 1/" + m_dryg + "</b> można rozłożyć na sumę trzech ułamków egipskich:<br>");
+  document.write("1/" + m_dryg + " = 1/" + u1 + " + 1/" + u21 + " + 1/" + u22 + "<br><br>");
+
+  // Sprawdzenie dla m=4 wg danych
+  if (m_dryg === 4) {
+    document.write("<i>Dane sprawdzające dla m=4:</i><br>");
+    document.write("1/4 = 1/6 + 1/30 + 1/20<br>");
+  }
+}
+</script>
+</head>
+<body>
+<h2>Drygalski - Zadanie 14: Rozkład ułamka egipskiego na trzy ułamki</h2>
+<input type="button" value="Rozłóż ułamek egipski na trzy" onclick="rozklad_ulamka_egipskiego_trzy()" />
+</body>
+</html>

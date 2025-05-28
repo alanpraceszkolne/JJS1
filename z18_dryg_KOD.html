@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Kod Zadania 18</title>
+<style>
+  body {
+    font-family: monospace;
+    margin: 20px;
+  }
+</style>
+</head>
+<body>
+<h2>Drygalski - Kod Zadania 18</h2>
+<textarea cols="90" rows="20" readonly>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 18</title>
+</head>
+<body>
+<div style="color:navy; font-size: 50px;">
+<script>
+  var a = parseFloat(prompt("a=", ""));
+  var b = parseFloat(prompt("b=", ""));
+
+  function suma_dry(a, b) {
+    return a + b;
+  }
+
+  function odejmowanie_dry(a, b) {
+    return a - b;
+  }
+
+  function mnozenie_dry(a, b) {
+    return a * b;
+  }
+
+  function od_kwadratu_dry(a, b) {
+    return a * a + ", " + b * b;
+  }
+
+  function reszta_z_dzielenia_a_przez_b_dry(a, b) {
+    return a % b;
+  }
+
+  document.write("suma = " + suma_dry(a, b) + "<br>");
+  document.write("odejmowanie = " + odejmowanie_dry(a, b) + "<br>");
+  document.write("mnozenie = " + mnozenie_dry(a, b) + "<br>");
+  document.write("kwadraty: " + od_kwadratu_dry(a, b) + "<br>");
+  document.write("reszta z dzielenia a przez b = " + reszta_z_dzielenia_a_przez_b_dry(a, b) + "<br>");
+</script>
+</div>
+</body>
+</html>
+</textarea>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Zadanie 36 - Drygalski - KOD</title>
+<style>
+  pre {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: monospace;
+  }
+</style>
+</head>
+<body>
+<h2>Kod rozwiązania Zadania 36 (Drygalski)</h2>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;Zadanie 36 - Drygalski&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+  var liczbaStr = prompt("Podaj liczbę:", "");
+  var liczba = parseInt(liczbaStr);
+
+  if (isNaN(liczba)) {
+    document.write("&lt;font color=\&quot;black\&quot; size=\&quot;3\&quot;&gt;Nie podałeś poprawnej liczby!&lt;/font&gt;");
+  } else {
+    if (liczba % 2 === 0) {
+      // liczba parzysta, czerwony napis, wielkość 3
+      document.write("&lt;font color=\&quot;red\&quot; size=\&quot;3\&quot;&gt;Liczba jest parzysta&lt;/font&gt;");
+    } else {
+      // liczba nieparzysta, srebrny napis, wielkość 5
+      document.write("&lt;font color=\&quot;silver\&quot; size=\&quot;5\&quot;&gt;Liczba jest nieparzysta&lt;/font&gt;");
+    }
+  }
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body>
+</html>

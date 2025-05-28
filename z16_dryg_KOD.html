@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Kod Zadania 16</title>
+<script>
+function zamknij_okno() {
+  window.close();
+}
+</script>
+<style>
+  body { color: navy; }
+</style>
+</head>
+<body>
+<h2>Drygalski - Kod programu zadania 16</h2>
+<form>
+<textarea cols="90" rows="30" readonly>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;Drygalski - Zadanie 16&lt;/title&gt;
+&lt;style&gt;
+  body {
+    color: navy;
+  }
+  .full-width {
+    width: 100vw;
+    font-size: 24px;
+    font-weight: bold;
+  }
+&lt;/style&gt;
+&lt;script&gt;
+function sterowanie_wydrukami() {
+  var A = prompt("Podaj pierwszą liczbę A=", "");
+  var B = prompt("Podaj drugą liczbę B=", "");
+  
+  A = parseInt(A);
+  B = parseInt(B);
+  
+  if (isNaN(A) || isNaN(B) || A &lt; 0 || B &lt; 0) {
+    document.write("Wprowadź dwie liczby naturalne (&gt;=0).");
+    return;
+  }
+  
+  document.write("Wczytane liczby: A=" + A + " B=" + B + "&lt;br&gt;");
+  
+  // Druga linia zajmuje całą szerokość okna i ma granatowy kolor z dużą czcionką
+  document.write("&lt;div class='full-width'&gt;");
+  
+  var A3 = Math.pow(A, 3);
+  var B3 = Math.pow(B, 3);
+  var wynik = Math.pow(A + B, 3);
+  var skladnik2 = 3 * Math.pow(A, 2) * B;
+  var skladnik3 = 3 * A * Math.pow(B, 2);
+  
+  document.write("(" + A + " + " + B + ")^3 = ");
+  document.write(A + "^3 + 3*(" + A + ")^2*(" + B + ") + 3*(" + A + ")*(" + B + ")^2 + " + B + "^3 = ");
+  document.write(A3 + " + " + skladnik2 + " + " + skladnik3 + " + " + B3 + " = " + wynik);
+  
+  document.write("&lt;/div&gt;");
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Drygalski - Zadanie 16: Sterowanie wydrukami&lt;/h2&gt;
+&lt;input type="button" value="Oblicz (A+B)^3" onclick="sterowanie_wydrukami()" /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+</form>
+<br />
+<input type="button" value="Zamknij okno" onclick="zamknij_okno()" />
+</body>
+</html>

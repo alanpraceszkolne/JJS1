@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 22 - Kod</title>
+<style>
+  pre {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+</style>
+</head>
+<body>
+<h2>Kod rozwiązania Zadania 22 (Drygalski)</h2>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;Drygalski - Zadanie 22&lt;/title&gt;
+&lt;script&gt;
+function Pole_dry(a_dry, b_dry) {
+  return a_dry * b_dry;
+}
+
+function obwod_dry(a_dry, b_dry) {
+  return 2 * (a_dry + b_dry);
+}
+
+function licz() {
+  var a_dry = parseFloat(document.getElementById('a_dana_dry').value);
+  var b_dry = parseFloat(document.getElementById('b_dana_dry').value);
+
+  if (isNaN(a_dry) || isNaN(b_dry)) {
+    alert('Proszę podać poprawne liczby!');
+    return;
+  }
+
+  var pole = Pole_dry(a_dry, b_dry);
+  var obw = obwod_dry(a_dry, b_dry);
+
+  document.getElementsByName('pole')[0].value = pole.toFixed(2);
+  document.getElementsByName('obw')[0].value = obw.toFixed(2);
+
+  document.getElementById('wyprowadz_pole_dry').innerHTML = "Pole prostokąta = " + pole.toFixed(2) + " cm²";
+  document.getElementById('wyprowadz_obwod_dry').innerHTML = "Obwód prostokąta = " + obw.toFixed(2) + " cm";
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Oblicz pole i obwód prostokąta&lt;/h2&gt;
+
+&lt;label for="a_dana_dry"&gt;a (bok 1): &lt;/label&gt;
+&lt;input id="a_dana_dry" type="text" /&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;label for="b_dana_dry"&gt;b (bok 2): &lt;/label&gt;
+&lt;input id="b_dana_dry" type="text" /&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;button onclick="licz()"&gt;Oblicz&lt;/button&gt;&lt;br&gt;&lt;br&gt;
+
+Pole: &lt;input type="text" name="pole" readonly /&gt; cm²&lt;br&gt;&lt;br&gt;
+Obwód: &lt;input type="text" name="obw" readonly /&gt; cm&lt;br&gt;&lt;br&gt;
+
+&lt;div id="wyprowadz_pole_dry" style="font-weight:bold; color:green;"&gt;&lt;/div&gt;
+&lt;div id="wyprowadz_obwod_dry" style="font-weight:bold; color:blue;"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body>
+</html>

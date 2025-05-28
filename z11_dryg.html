@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 11</title>
+<style>
+  #wynik {
+    color: green;
+    font-size: 43px; /* 30 + 13 (numer dnia urodzenia) */
+    font-weight: bold;
+  }
+</style>
+<script>
+function oblicz_sekundy_dryg() {
+  // Wczytanie dni (można zmienić na prompt, tutaj dla wygody na stałe)
+  var D1_dryg = prompt("Podaj pierwszy dzień stycznia (D1):", "");
+  var D2_dryg = prompt("Podaj drugi dzień stycznia (D2):", "");
+
+  // Konwersja do liczb naturalnych
+  D1_dryg = parseInt(D1_dryg);
+  D2_dryg = parseInt(D2_dryg);
+
+  // Obliczenie różnicy dni (zakładamy D1 >= D2)
+  var roznica = D1_dryg - D2_dryg;
+
+  // Obliczenie sekund (1 dzień = 86400 sekund)
+  var sekundy = roznica * 86400;
+
+  // Wyświetlenie wyniku
+  var wynik = "Ilość sekund między dniami " + D1_dryg + " i " + D2_dryg + " to: " + sekundy + " sekund";
+  document.getElementById("wynik").innerText = wynik;
+}
+</script>
+</head>
+<body onload="oblicz_sekundy_dryg()">
+<h2>Drygalski - Zadanie 11 (Ile sekund)</h2>
+<div id="wynik"></div>
+<br />
+<input type="button" value="Zamknij okno" onclick="window.close()" />
+</body>
+</html>

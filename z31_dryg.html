@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Zadanie 31 - Drygalski</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  button { margin-right: 10px; margin-bottom: 10px; }
+  #wynik, #kod { border: 1px solid #ccc; padding: 10px; margin-top: 10px; }
+  #kod { white-space: pre; font-family: monospace; background: #f9f9f9; display: none; height: 300px; overflow: auto;}
+</style>
+</head>
+<body>
+
+<h2>Zadanie 31 – Programowanie obiektowe (Drygalski)</h2>
+
+<button onclick="pokazZadanie()">Pokaż zadanie</button>
+<button onclick="pokazKod()">Pokaż kod</button>
+
+<div id="wynik"></div>
+<pre id="kod"></pre>
+
+<script>
+// Definicja obiektu z 3 polami i metodą
+var Samochod = {
+  kolor: 'czerwony',
+  marka: 'Toyota',
+  rok: 2022,
+  samochod_pokaz_Drygalski: function() {
+    return "Obiekt: Samochod\n" +
+           "Pola: kolor, marka, rok\n" +
+           "Metoda: samochod_pokaz_Drygalski";
+  }
+};
+
+// Dodanie nowego pola **poza** ciałem obiektu
+Samochod.wlasciciel = 'Jan Kowalski';
+
+// Dodanie nowej metody poza ciałem obiektu
+Samochod.samochod_pokaz_wlasciciel_Drygalski = function() {
+  return "Nowe pole: wlasciciel = " + this.wlasciciel;
+};
+
+// Funkcja pokazująca efekt zadania (wyświetla właściwości i metody)
+function pokazZadanie() {
+  var wynik = "";
+  wynik += Samochod.samochod_pokaz_Drygalski() + "\n";
+  wynik += Samochod.samochod_pokaz_wlasciciel_Drygalski();
+  document.getElementById('wynik').innerText = wynik;
+  document.getElementById('wynik').style.display = 'block';
+  document.getElementById('kod').style.display = 'none';
+}
+
+// Kod do pokazania w pre
+var kodProgramu = `
+var Samochod = {
+  kolor: 'czerwony',
+  marka: 'Toyota',
+  rok: 2022,
+  samochod_pokaz_Drygalski: function() {
+    return "Obiekt: Samochod\\n" +
+           "Pola: kolor, marka, rok\\n" +
+           "Metoda: samochod_pokaz_Drygalski";
+  }
+};
+
+// Dodanie nowego pola poza ciałem obiektu
+Samochod.wlasciciel = 'Jan Kowalski';
+
+// Dodanie nowej metody poza ciałem obiektu
+Samochod.samochod_pokaz_wlasciciel_Drygalski = function() {
+  return "Nowe pole: wlasciciel = " + this.wlasciciel;
+};
+
+// Wyświetlenie wyników
+console.log(Samochod.samochod_pokaz_Drygalski());
+console.log(Samochod.samochod_pokaz_wlasciciel_Drygalski());
+`;
+
+function pokazKod() {
+  document.getElementById('kod').innerText = kodProgramu.trim();
+  document.getElementById('kod').style.display = 'block';
+  document.getElementById('wynik').style.display = 'none';
+}
+
+// Domyślnie pokazujemy efekt zadania
+pokazZadanie();
+</script>
+
+</body>
+</html>

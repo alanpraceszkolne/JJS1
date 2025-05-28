@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 25 - Kod</title>
+<style>
+pre {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: monospace;
+}
+</style>
+</head>
+<body>
+<h2>Kod rozwiązania Zadania 25 (Drygalski)</h2>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;Drygalski - Zadanie 25&lt;/title&gt;
+&lt;script&gt;
+/*
+  Autor: Drygalski
+  Zadanie 25 - Obliczanie ilości atomów pierwiastka promieniotwórczego po czasie t
+*/
+
+function zadanie25() {
+  var No_dry = parseFloat(prompt("Podaj początkową ilość atomów No:"));
+  var t_dry = parseFloat(prompt("Podaj czas t (w latach):"));
+  var T12_dry = parseFloat(prompt("Podaj okres połowicznego zaniku T1/2 (w latach):"));
+
+  if (isNaN(No_dry) || isNaN(t_dry) || isNaN(T12_dry) || No_dry &lt;= 0 || t_dry &lt; 0 || T12_dry &lt;= 0) {
+    alert("Proszę podać poprawne liczby. No &gt; 0, t &gt;= 0, T1/2 &gt; 0");
+    return;
+  }
+
+  var lambda_dry = Math.log(2) / T12_dry;
+  var N_dry = No_dry * Math.pow(Math.E, -lambda_dry * t_dry);
+
+  var output = "";
+
+  output += `&lt;p style="font-size:18px; color:#003366;"&gt;Wczytane dane:&lt;/p&gt;`;
+  output += `&lt;p style="font-size:16px; color:#004d00;"&gt;No = ${No_dry.toFixed(2)} [sztuk]&lt;/p&gt;`;
+  output += `&lt;p style="font-size:16px; color:#004d00;"&gt;t = ${t_dry.toFixed(2)} [lat]&lt;/p&gt;`;
+  output += `&lt;p style="font-size:16px; color:#004d00;"&gt;T1/2 = ${T12_dry.toFixed(2)} [lat]&lt;/p&gt;`;
+
+  output += `&lt;hr&gt;`;
+
+  output += `&lt;p style="font-size:18px; color:#800000;"&gt;Wyniki obliczeń:&lt;/p&gt;`;
+  output += `&lt;p style="font-size:16px; color:#990000;"&gt;Stała rozpadu &amp;lambda; = ${lambda_dry.toFixed(7)} [1/rok]&lt;/p&gt;`;
+  output += `&lt;p style="font-size:16px; color:#990000;"&gt;Ilość atomów po czasie t: N = ${N_dry.toFixed(2)} [sztuk]&lt;/p&gt;`;
+
+  document.getElementById('wyniki_dry').innerHTML = output;
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Zadanie 25 - Obliczanie ilości atomów pierwiastka promieniotwórczego&lt;/h2&gt;
+
+&lt;button onclick="zadanie25()"&gt;Wykonaj zadanie&lt;/button&gt;
+
+&lt;div id="wyniki_dry" style="margin-top:20px;"&gt;&lt;/div&gt;
+
+&lt;p style="font-style: italic; color: gray; margin-top: 30px;"&gt;
+  Użyj danych do testów:&lt;br&gt;
+  - Węgiel C14: T1/2 = 5700 lat&lt;br&gt;
+  - Rad (do znalezienia w internecie, np. około 1600 lat)&lt;br&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body>
+</html>

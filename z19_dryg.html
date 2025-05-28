@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Drygalski - Zadanie 19</title>
+</head>
+<body>
+<script type="text/javascript">
+  function pole_dryg() {
+    var a_dryg = parseFloat(document.getElementById('dlugosc_dryg').value);
+    var b_dryg = a_dryg * a_dryg;
+    document.getElementById("nazwa_dryg").innerHTML = "Pole kwadratu= " + b_dryg.toFixed(2) + " cm²";
+  }
+
+  function obwod_dryg() {
+    var a_dryg = parseFloat(document.getElementById('dlugosc_dryg').value);
+    var b_dryg = 4 * a_dryg;
+    document.getElementById("nazwa_dryg").innerHTML = "Obwód kwadratu= " + b_dryg.toFixed(2) + " cm";
+  }
+</script>
+
+<h1>Wszystko o KWADRACIE - Drygalski</h1><br><br>
+Podaj długość boku: <input type="text" id="dlugosc_dryg" value="podaj długość"> cm<br><br><br>
+
+<input type="button" name="pole" value="Oblicz pole" onclick="pole_dryg()"><br><br>
+<input type="button" name="obwod" value="Oblicz obwód" onclick="obwod_dryg()"><br><br>
+
+<div style="color:red; font-size:50px;" id="nazwa_dryg"></div>
+
+</body>
+</html>

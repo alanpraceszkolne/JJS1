@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 26</title>
+<script>
+/*
+  Autor: Drygalski
+  Zadanie 26 - Obliczenie pola i obwodu trapezu równoramiennego
+*/
+
+// Funkcja do obliczenia pola trapezu
+function Pow_dry(a_dry, b_dry, h_dry) {
+  return ((a_dry + b_dry) / 2) * h_dry;
+}
+
+// Funkcja do obliczenia obwodu trapezu
+function Obw_dry(a_dry, b_dry, h_dry) {
+  // Oblicz długość ramienia z twierdzenia Pitagorasa
+  var r_dry = Math.sqrt(h_dry*h_dry + Math.pow(Math.abs(a_dry - b_dry)/2, 2));
+  return a_dry + b_dry + 2*r_dry;
+}
+
+function wykonajObliczenia() {
+  var a_dry = parseFloat(document.getElementById('a_dana_dry').value);
+  var b_dry = parseFloat(document.getElementById('b_dana_dry').value);
+  var h_dry = parseFloat(document.getElementById('h_dana_dry').value);
+
+  if (isNaN(a_dry) || isNaN(b_dry) || isNaN(h_dry) || a_dry <= 0 || b_dry <= 0 || h_dry <= 0) {
+    alert('Proszę podać poprawne, dodatnie liczby dla podstaw i wysokości.');
+    return;
+  }
+
+  var pole = Pow_dry(a_dry, b_dry, h_dry);
+  var obwod = Obw_dry(a_dry, b_dry, h_dry);
+
+  // Wyświetlenie wyników przy pomocy document.write
+  document.open();
+  document.write('<h2>Wyniki obliczeń trapezu równoramiennego</h2>');
+  document.write('<p>Podstawa górna (a): ' + a_dry + '</p>');
+  document.write('<p>Podstawa dolna (b): ' + b_dry + '</p>');
+  document.write('<p>Wysokość (h): ' + h_dry + '</p>');
+  document.write('<p><strong>Pole trapezu: ' + pole.toFixed(2) + '</strong></p>');
+  document.write('<p><strong>Obwód trapezu: ' + obwod.toFixed(2) + '</strong></p>');
+  document.write('<button onclick="location.reload()">Wróć</button>');
+  document.close();
+}
+</script>
+</head>
+<body>
+<h2>Zadanie 26 - Pole i obwód trapezu równoramiennego</h2>
+<form onsubmit="event.preventDefault(); wykonajObliczenia();">
+  <label for="a_dana_dry">Podstawa górna (a):</label><br>
+  <input type="number" id="a_dana_dry" step="0.01" min="0.01" required><br><br>
+
+  <label for="b_dana_dry">Podstawa dolna (b):</label><br>
+  <input type="number" id="b_dana_dry" step="0.01" min="0.01" required><br><br>
+
+  <label for="h_dana_dry">Wysokość (h):</label><br>
+  <input type="number" id="h_dana_dry" step="0.01" min="0.01" required><br><br>
+
+  <input type="submit" value="Oblicz pole i obwód">
+</form>
+</body>
+</html>

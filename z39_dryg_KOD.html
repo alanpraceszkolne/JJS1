@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Zadanie 39 - Kod źródłowy</title>
+<style>
+  pre {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 15px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Kod źródłowy zadania 39</h2>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Zadanie 39&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 style="color:green;"&gt;MENU&lt;/h1&gt;
+    &lt;p style="color:red;"&gt;&lt;b&gt;1 - CZERWONY&lt;/b&gt;&lt;/p&gt;
+    &lt;p style="color:blue;"&gt;&lt;b&gt;2 - NIEBIESKI&lt;/b&gt;&lt;/p&gt;
+    &lt;button onclick="fun_dry()"&gt;Oblicz&lt;/button&gt;
+
+    &lt;script&gt;
+        function fun_dry() {
+            var x_dry = prompt("Podaj kolor (1, 2, czerwony, niebieski):", "").toLowerCase();
+
+            if (x_dry === "1" || x_dry === "czerwony") {
+                document.write('&lt;font color="red" size="7"&gt;&lt;b&gt;Wczytałeś kolor czerwony&lt;/b&gt;&lt;/font&gt;&lt;br&gt;');
+            } else if (x_dry === "2" || x_dry === "niebieski") {
+                document.write('&lt;font color="blue" size="1"&gt;&lt;b&gt;Wczytałeś kolor niebieski&lt;/b&gt;&lt;/font&gt;&lt;br&gt;');
+            } else {
+                document.write('&lt;font color="black" size="4"&gt;&lt;b&gt;Nieprawidłowy wybór&lt;/b&gt;&lt;/font&gt;&lt;br&gt;');
+            }
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+</body>
+</html>

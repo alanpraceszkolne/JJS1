@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Kod Zadania 14</title>
+<script>
+function zamknij_okno() {
+  window.close();
+}
+</script>
+</head>
+<body>
+<h2>Drygalski - Kod programu zadania 14</h2>
+<form>
+<textarea cols="80" rows="30" readonly>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;Drygalski - Zadanie 14&lt;/title&gt;
+&lt;script&gt;
+function rozklad_ulamka_egipskiego_trzy() {
+  var m_dryg = prompt("Podaj liczbę naturalną m (m &gt; 0):", "");
+  m_dryg = parseInt(m_dryg);
+
+  if (isNaN(m_dryg) || m_dryg &lt;= 0) {
+    document.write("Niepoprawna wartość m. Podaj liczbę naturalną większą od 0.");
+    return;
+  }
+
+  // Najpierw rozkład na dwa ułamki
+  var u1 = m_dryg + 2;
+  var u2 = m_dryg * (m_dryg + 2);
+
+  // Następnie rozkładamy drugi ułamek (1/u2) na dwa ułamki:
+  var u21 = u2 + 1;
+  var u22 = u2 * (u2 + 1);
+
+  document.write("&lt;b&gt;Ułamek egipski 1/" + m_dryg + "&lt;/b&gt; można rozłożyć na sumę trzech ułamków egipskich:&lt;br&gt;");
+  document.write("1/" + m_dryg + " = 1/" + u1 + " + 1/" + u21 + " + 1/" + u22 + "&lt;br&gt;&lt;br&gt;");
+
+  // Sprawdzenie dla m=4 wg danych
+  if (m_dryg === 4) {
+    document.write("&lt;i&gt;Dane sprawdzające dla m=4:&lt;/i&gt;&lt;br&gt;");
+    document.write("1/4 = 1/6 + 1/30 + 1/20&lt;br&gt;");
+  }
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Drygalski - Zadanie 14: Rozkład ułamka egipskiego na trzy ułamki&lt;/h2&gt;
+&lt;input type="button" value="Rozłóż ułamek egipski na trzy" onclick="rozklad_ulamka_egipskiego_trzy()" /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+</form>
+<br />
+<input type="button" value="Zamknij okno" onclick="zamknij_okno()" />
+</body>
+</html>

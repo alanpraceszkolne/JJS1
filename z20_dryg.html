@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Drygalski - Zadanie 20</title>
+</head>
+<body>
+<h1>Obliczanie długości boków trójkąta - Drygalski</h1>
+<form>
+  Punkt A: x=<input type="number" id="xa_dryg" step="any" value="0"> y=<input type="number" id="ya_dryg" step="any" value="0"><br><br>
+  Punkt B: x=<input type="number" id="xb_dryg" step="any" value="0"> y=<input type="number" id="yb_dryg" step="any" value="0"><br><br>
+  Punkt C: x=<input type="number" id="xc_dryg" step="any" value="0"> y=<input type="number" id="yc_dryg" step="any" value="0"><br><br>
+</form>
+
+<input type="button" value="Oblicz długości boków" onclick="obliczBoki_dryg()">
+
+<div id="wyniki_dryg" style="color:navy; font-size:25px; margin-top:20px;"></div>
+
+<script>
+  function AB_dryg(xa, ya, xb, yb) {
+    return Math.sqrt(Math.pow(xb - xa, 2) + Math.pow(yb - ya, 2));
+  }
+
+  function BC_dryg(xb, yb, xc, yc) {
+    return Math.sqrt(Math.pow(xc - xb, 2) + Math.pow(yc - yb, 2));
+  }
+
+  function AC_dryg(xa, ya, xc, yc) {
+    return Math.sqrt(Math.pow(xc - xa, 2) + Math.pow(yc - ya, 2));
+  }
+
+  function obliczBoki_dryg() {
+    var xa_dryg = parseFloat(document.getElementById("xa_dryg").value);
+    var ya_dryg = parseFloat(document.getElementById("ya_dryg").value);
+    var xb_dryg = parseFloat(document.getElementById("xb_dryg").value);
+    var yb_dryg = parseFloat(document.getElementById("yb_dryg").value);
+    var xc_dryg = parseFloat(document.getElementById("xc_dryg").value);
+    var yc_dryg = parseFloat(document.getElementById("yc_dryg").value);
+
+    var ab = AB_dryg(xa_dryg, ya_dryg, xb_dryg, yb_dryg);
+    var bc = BC_dryg(xb_dryg, yb_dryg, xc_dryg, yc_dryg);
+    var ac = AC_dryg(xa_dryg, ya_dryg, xc_dryg, yc_dryg);
+
+    var wynikTekst = 
+      "Długość boku AB = " + ab.toFixed(3) + "<br>" +
+      "Długość boku BC = " + bc.toFixed(3) + "<br>" +
+      "Długość boku AC = " + ac.toFixed(3);
+
+    document.getElementById("wyniki_dryg").innerHTML = wynikTekst;
+  }
+</script>
+</body>
+</html>

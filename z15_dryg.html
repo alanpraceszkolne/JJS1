@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 15</title>
+<script>
+function rozklad_ulamka_egipskiego_dwa() {
+  var m_dryg = prompt("Podaj liczbę naturalną m (m > 0):", "");
+  m_dryg = parseInt(m_dryg);
+
+  if (isNaN(m_dryg) || m_dryg <= 0) {
+    document.write("Niepoprawna wartość m. Podaj liczbę naturalną większą od 0.");
+    return;
+  }
+
+  // Rozkład 1/m na dwa takie same ułamki: 1/(2m) + 1/(2m)
+  var mianownik = 2 * m_dryg;
+
+  document.write("<b>Ułamek egipski 1/" + m_dryg + "</b> można rozłożyć na dwa takie same ułamki egipskie:<br>");
+  document.write("1/" + m_dryg + " = 1/" + mianownik + " + 1/" + mianownik + "<br><br>");
+
+  // Przykłady z danych do sprawdzenia
+  if (m_dryg === 3) {
+    document.write("<i>Dane sprawdzające dla m=3:</i><br>");
+    document.write("1/3 = 1/6 + 1/6<br>");
+  } else if (m_dryg === 7) {
+    document.write("<i>Dane sprawdzające dla m=7:</i><br>");
+    document.write("1/7 = 1/14 + 1/14<br>");
+  }
+}
+</script>
+</head>
+<body>
+<h2>Drygalski - Zadanie 15: Rozkład ułamka egipskiego na dwa takie same ułamki</h2>
+<input type="button" value="Rozłóż ułamek egipski na dwa takie same" onclick="rozklad_ulamka_egipskiego_dwa()" />
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Zadanie 32 - Drygalski</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  button { margin-right: 10px; margin-bottom: 10px; }
+  #wynik, #kod { border: 1px solid #ccc; padding: 10px; margin-top: 10px; }
+  #kod { white-space: pre; font-family: monospace; background: #f9f9f9; display: none; height: 300px; overflow: auto;}
+</style>
+</head>
+<body>
+
+<h2>Zadanie 32 – Programowanie obiektowe (Drygalski)</h2>
+
+<button onclick="pokazZadanie()">Pokaż zadanie</button>
+<button onclick="pokazKod()">Pokaż kod</button>
+
+<div id="wynik"></div>
+<pre id="kod"></pre>
+
+<script>
+// Obiekt z zadania 31 (bazowy)
+var Samochod = {
+  kolor: 'czerwony',
+  marka: 'Toyota',
+  rok: 2022,
+  samochod_pokaz_Drygalski: function() {
+    return "Obiekt: Samochod\n" +
+           "Pola: kolor, marka, rok\n" +
+           "Metoda: samochod_pokaz_Drygalski";
+  }
+};
+// Dodane pole i metoda poza ciałem obiektu
+Samochod.wlasciciel = 'Jan Kowalski';
+Samochod.samochod_pokaz_wlasciciel_Drygalski = function() {
+  return "Nowe pole: wlasciciel = " + this.wlasciciel;
+};
+
+// Zadanie 32: klasa z przyciskiem i poprawnym kontekstem this
+function SuperObjectClass() {
+  this.name = 'Drygalski';
+  this.height = 183;
+  this.button = null;
+
+  // Inicjalizacja - tworzymy przycisk, kliknięcie pokazuje wzrost (this.height)
+  this.init = function() {
+    var that = this; // trik z that
+    this.button = document.createElement('input');
+    this.button.type = 'button';
+    this.button.value = 'Kliknij mnie (metoda z that)';
+    this.button.addEventListener('click', function() {
+      alert('Wzrost obiektu (that): ' + that.height + ' cm');
+    });
+    document.body.appendChild(this.button);
+
+    // Drugi przycisk - z użyciem bind()
+    this.button2 = document.createElement('input');
+    this.button2.type = 'button';
+    this.button2.value = 'Kliknij mnie (metoda z bind)';
+    this.button2.style.marginLeft = '10px';
+    this.button2.addEventListener('click', function(e) {
+      alert('Wzrost obiektu (bind): ' + this.height + ' cm');
+    }.bind(this));
+    document.body.appendChild(this.button2);
+  };
+
+  this.init();
+}
+
+var someObject = new SuperObjectClass();
+
+function pokazZadanie() {
+  // Czyścimy wyniki i kod
+  document.getElementById('kod').style.display = 'none';
+  document.getElementById('wynik').style.display = 'block';
+
+  var wynik = "";
+  wynik += Samochod.samochod_pokaz_Drygalski() + "\n";
+  wynik += Samochod.samochod_pokaz_wlasciciel_Drygalski() + "\n\n";
+  wynik += "Obiekt z przyciskami: SuperObjectClass\n";
+  wynik += "Pola: name, height, button\n";
+  wynik += "Metody: init (tworzy przyciski z poprawnym kontekstem this)\n";
+  wynik += "Obsługa kliknięć:\n";
+  wynik += " - metoda z użyciem dodatkowej zmiennej 'that'\n";
+  wynik += " - metoda z użyciem bind(this)\n";
+  document.getElementById('wynik').innerText = wynik;
+}
+
+var kodProgramu = `
+// Obiekt bazowy
+var Samochod = {
+  kolor: 'czerwony',
+  marka: 'Toyota',
+  rok: 2022,
+  samochod_pokaz_Drygalski: function() {
+    return "Obiekt: Samochod\\n" +
+           "Pola: kolor, marka, rok\\n" +
+           "Metoda: samochod_pokaz_Drygalski";
+  }
+};
+Samochod.wlasciciel = 'Jan Kowalski';
+Samochod.samochod_pokaz_wlasciciel_Drygalski = function() {
+  return "Nowe pole: wlasciciel = " + this.wlasciciel;
+};
+
+// Klasa z przyciskami i kontekstem this
+function SuperObjectClass() {
+  this.name = 'Drygalski';
+  this.height = 183;
+  this.button = null;
+
+  this.init = function() {
+    var that = this;
+    this.button = document.createElement('input');
+    this.button.type = 'button';
+    this.button.value = 'Kliknij mnie (metoda z that)';
+    this.button.addEventListener('click', function() {
+      alert('Wzrost obiektu (that): ' + that.height + ' cm');
+    });
+    document.body.appendChild(this.button);
+
+    this.button2 = document.createElement('input');
+    this.button2.type = 'button';
+    this.button2.value = 'Kliknij mnie (metoda z bind)';
+    this.button2.style.marginLeft = '10px';
+    this.button2.addEventListener('click', function(e) {
+      alert('Wzrost obiektu (bind): ' + this.height + ' cm');
+    }.bind(this));
+    document.body.appendChild(this.button2);
+  };
+
+  this.init();
+}
+
+var someObject = new SuperObjectClass();
+
+// Wyświetlenie wyników
+console.log(Samochod.samochod_pokaz_Drygalski());
+console.log(Samochod.samochod_pokaz_wlasciciel_Drygalski());
+`;
+
+function pokazKod() {
+  document.getElementById('kod').innerText = kodProgramu.trim();
+  document.getElementById('kod').style.display = 'block';
+  document.getElementById('wynik').style.display = 'none';
+}
+
+// Domyślnie pokazujemy wynik zadania
+pokazZadanie();
+
+</script>
+
+</body>
+</html>

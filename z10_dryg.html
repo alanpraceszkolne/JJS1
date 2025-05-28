@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Drygalski - Zadanie 10</title>
+  <style>
+    div#wynik {
+      color: red;
+      font-size: 50px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Drygalski - Zadanie 10 (Suma dwóch liczb)</h2>
+
+  <div id="wynik"></div>
+
+  <script type="text/javascript">
+    function obliczSume_dryg() {
+      var liczba1 = prompt("Podaj pierwszą liczbę:", "");
+      var liczba2 = prompt("Podaj drugą liczbę:", "");
+
+      // Konwersja do liczby zmiennoprzecinkowej
+      var a = parseFloat(liczba1);
+      var b = parseFloat(liczba2);
+
+      if (isNaN(a) || isNaN(b)) {
+        document.getElementById('wynik').innerHTML = "Proszę podać poprawne liczby!";
+      } else {
+        var suma = a + b;
+        document.getElementById('wynik').innerHTML = "Suma = " + a + " + " + b + " = " + suma;
+      }
+    }
+
+    obliczSume_dryg();
+  </script>
+
+  <br />
+  <form>
+    <input type="button" value="Zamknij okno" onclick="window.close()" />
+  </form>
+</body>
+</html>

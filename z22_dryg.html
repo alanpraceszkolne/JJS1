@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 22</title>
+<script>
+function Pole_dry(a_dry, b_dry) {
+  return a_dry * b_dry;
+}
+
+function obwod_dry(a_dry, b_dry) {
+  return 2 * (a_dry + b_dry);
+}
+
+function licz() {
+  var a_dry = parseFloat(document.getElementById('a_dana_dry').value);
+  var b_dry = parseFloat(document.getElementById('b_dana_dry').value);
+
+  if (isNaN(a_dry) || isNaN(b_dry)) {
+    alert('Proszę podać poprawne liczby!');
+    return;
+  }
+
+  var pole = Pole_dry(a_dry, b_dry);
+  var obw = obwod_dry(a_dry, b_dry);
+
+  document.getElementsByName('pole')[0].value = pole.toFixed(2);
+  document.getElementsByName('obw')[0].value = obw.toFixed(2);
+
+  document.getElementById('wyprowadz_pole_dry').innerHTML = "Pole prostokąta = " + pole.toFixed(2) + " cm²";
+  document.getElementById('wyprowadz_obwod_dry').innerHTML = "Obwód prostokąta = " + obw.toFixed(2) + " cm";
+}
+</script>
+</head>
+<body>
+<h2>Oblicz pole i obwód prostokąta</h2>
+
+<label for="a_dana_dry">a (bok 1): </label>
+<input id="a_dana_dry" type="text" /><br><br>
+
+<label for="b_dana_dry">b (bok 2): </label>
+<input id="b_dana_dry" type="text" /><br><br>
+
+<button onclick="licz()">Oblicz</button><br><br>
+
+Pole: <input type="text" name="pole" readonly /> cm²<br><br>
+Obwód: <input type="text" name="obw" readonly /> cm<br><br>
+
+<div id="wyprowadz_pole_dry" style="font-weight:bold; color:green;"></div>
+<div id="wyprowadz_obwod_dry" style="font-weight:bold; color:blue;"></div>
+
+</body>
+</html>

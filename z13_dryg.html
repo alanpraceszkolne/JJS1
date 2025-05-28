@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 13</title>
+<script>
+function rozklad_ulamka_egipskiego() {
+  var m_dryg = prompt("Podaj liczbę naturalną m (m > 0):", "");
+  m_dryg = parseInt(m_dryg);
+
+  if (isNaN(m_dryg) || m_dryg <= 0) {
+    document.write("Niepoprawna wartość m. Podaj liczbę naturalną większą od 0.");
+    return;
+  }
+
+  var pierwsza_cz = m_dryg + 1;
+  var druga_cz = m_dryg * (m_dryg + 1);
+
+  document.write("<b>Ułamek egipski 1/" + m_dryg + "</b> można rozłożyć na sumę dwóch ułamków egipskich:<br>");
+  document.write("1/" + m_dryg + " = 1/" + pierwsza_cz + " + 1/" + druga_cz + "<br><br>");
+
+  if (m_dryg === 4) {
+    document.write("<i>Sprawdzenie dla m=4: 1/4 = 1/5 + 1/20</i><br>");
+  }
+}
+</script>
+</head>
+<body>
+<h2>Drygalski - Zadanie 13: Rozkład ułamka egipskiego</h2>
+<input type="button" value="Rozłóż ułamek egipski" onclick="rozklad_ulamka_egipskiego()" />
+</body>
+</html>

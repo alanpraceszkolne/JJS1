@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 27</title>
+<script>
+/*
+  Autor: Drygalski
+  Zadanie 27 - Obliczenia wysokości i kąta startu samolotu
+*/
+
+// Funkcja do konwersji stopni na radiany
+function degToRad(deg) {
+  return deg * Math.PI / 180;
+}
+
+// Funkcja do konwersji radianów na stopnie
+function radToDeg(rad) {
+  return rad * 180 / Math.PI;
+}
+
+// Funkcja do obliczenia wysokości samolotu (h_kow) na podstawie drogi s i kąta startu kat
+// h = s * sin(kat)  (kat w stopniach)
+function wysokosc_kow(s_kow, kat_kow) {
+  var katRad = degToRad(kat_kow);
+  return s_kow * Math.sin(katRad);
+}
+
+// Funkcja do obliczenia kąta startu samolotu na podstawie drogi s i odległości poziomej odl
+// kąt = arccos(odl/s) (wynik w radianach)
+function kat_startu_kow(odl_kow, s_kow) {
+  // zabezpieczenie przed przekroczeniem wartości
+  var val = odl_kow / s_kow;
+  if(val > 1) val = 1;
+  if(val < 0) val = 0;
+  var katRad = Math.acos(val);
+  return radToDeg(katRad);
+}
+
+function wykonajObliczenia() {
+  var odl_kow = parseFloat(document.getElementById('odl_dana_kow').value);
+  var kat_kow = parseFloat(document.getElementById('kat_dana_kow').value);
+  var s_kow = parseFloat(document.getElementById('s_dana_kow').value);
+
+  if (isNaN(odl_kow) || isNaN(kat_kow) || isNaN(s_kow) || odl_kow <= 0 || kat_kow <= 0 || s_kow <= 0) {
+    alert('Proszę podać poprawne, dodatnie liczby.');
+    return;
+  }
+
+  // Obliczamy wysokość
+  var h_kow = wysokosc_kow(s_kow, kat_kow);
+
+  // Obliczamy kąt startu na podstawie odl i s
+  var kat_start_kow = kat_startu_kow(odl_kow, s_kow);
+
+  // Wyświetlenie wyników
+  document.open();
+  document.write('<h2>Wyniki zadania 27</h2>');
+  document.write('<p>Odległość pozioma między Arturem a Dawidem (odl_kow): ' + odl_kow.toFixed(2) + ' m</p>');
+  document.write('<p>Kąt startu zadany (kat_kow): ' + kat_kow.toFixed(2) + '°</p>');
+  document.write('<p>Droga przebyta przez samolot (s_kow): ' + s_kow.toFixed(2) + ' m</p><hr>');
+  document.write('<p><strong>Obliczona wysokość samolotu (h_kow): ' + h_kow.toFixed(2) + ' m</strong></p>');
+  document.write('<p><strong>Obliczony kąt startu samolotu: ' + kat_start_kow.toFixed(2) + '°</strong></p>');
+  document.write('<button onclick="location.reload()">Wróć</button>');
+  document.close();
+}
+</script>
+</head>
+<body>
+<h2>Zadanie 27 - Obliczenia samolotu</h2>
+<form onsubmit="event.preventDefault(); wykonajObliczenia();">
+  <label for="odl_dana_kow">Odległość pozioma między Arturem a Dawidem (odl_kow) [m]:</label><br>
+  <input type="number" id="odl_dana_kow" step="0.01" min="0.01" required><br><br>
+
+  <label for="kat_dana_kow">Kąt startu samolotu (kat_kow) [stopnie]:</label><br>
+  <input type="number" id="kat_dana_kow" step="0.01" min="0.01" max="90" required><br><br>
+
+  <label for="s_dana_kow">Droga przebyta przez samolot (s_kow) [m]:</label><br>
+  <input type="number" id="s_dana_kow" step="0.01" min="0.01" required><br><br>
+
+  <input type="submit" value="Oblicz">
+</form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 12</title>
+<style>
+  #wynik {
+    color: green;
+    font-size: 43px; /* 30 + 13 (numer dnia urodzenia) */
+    font-weight: bold;
+  }
+</style>
+<script>
+function oblicz_sekundy_godziny_dryg() {
+  var D1_dryg = prompt("Podaj pierwszy dzień stycznia (D1):", "");
+  var G1_dryg = prompt("Podaj godzinę pierwszego dnia (G1):", "");
+  var D2_dryg = prompt("Podaj drugi dzień stycznia (D2):", "");
+  var G2_dryg = prompt("Podaj godzinę drugiego dnia (G2):", "");
+
+  D1_dryg = parseInt(D1_dryg);
+  G1_dryg = parseInt(G1_dryg);
+  D2_dryg = parseInt(D2_dryg);
+  G2_dryg = parseInt(G2_dryg);
+
+  // obliczenie łącznej różnicy sekund
+  // różnica dni w sekundach
+  var dni_sekundy = (D1_dryg - D2_dryg) * 86400;
+  // różnica godzin w sekundach
+  var godziny_sekundy = (G1_dryg - G2_dryg) * 3600;
+
+  var sekundy = dni_sekundy + godziny_sekundy;
+
+  var wynik = "Ilość sekund między dniami " + D1_dryg + " godz. " + G1_dryg + " i dniem " + D2_dryg + " godz. " + G2_dryg + " to: " + sekundy + " sekund";
+  document.getElementById("wynik").innerText = wynik;
+}
+</script>
+</head>
+<body onload="oblicz_sekundy_godziny_dryg()">
+<h2>Drygalski - Zadanie 12 (Ile sekund z godzinami)</h2>
+<div id="wynik"></div>
+<br />
+<input type="button" value="Zamknij okno" onclick="window.close()" />
+</body>
+</html>

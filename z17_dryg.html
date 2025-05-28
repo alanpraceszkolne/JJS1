@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Zadanie 17</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+  }
+  b {
+    color: darkblue;
+  }
+  u {
+    color: darkred;
+  }
+</style>
+</head>
+<body>
+<h2>Drygalski - Zadanie 17: Zadanie teoretyczne</h2>
+
+<p><b>1. Wymień cztery sposoby wyprowadzania danych w JS:</b><br>
+<u>Odpowiedź:</u><br>
+- z użyciem <code>document.write()</code><br>
+- z użyciem okienka <code>alert()</code><br>
+- do okienek formularza (np. pola tekstowego)<br>
+- do tabeli (wstawianie danych do komórek tabeli)</p>
+
+<p><b>2. Czym jest funkcja w JS, omów przy użyciu 4 podpunktów?</b><br>
+<u>Odpowiedź:</u><br>
+- Jest to zbiór zgrupowanych instrukcji, które możemy uruchamiać poprzez podanie ich nazwy.<br>
+- Każda funkcja po wywołaniu wykonuje swój wewnętrzny kod.<br>
+- Funkcja może mieć argumenty, które wchodzą do jej wnętrza i są tam przetwarzane, np. <code>suma_kry(a, b)</code>.<br>
+- Może (nie zawsze) zwrócić obliczoną wartość za pomocą słowa kluczowego <code>return</code>.</p>
+
+<p><b>3. Omów metody getElementsByName, getElementById, getElementByTagName (może być w postaci tabeli):</b></p>
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Metoda</th>
+      <th>Opis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>getElementById("id")</code></td>
+      <td>Dostęp do elementu o konkretnej wartości atrybutu <code>id</code> (unikalny element).</td>
+    </tr>
+    <tr>
+      <td><code>getElementsByName("nazwa")</code></td>
+      <td>Dostęp do wszystkich elementów o konkretnej wartości atrybutu <code>name</code> (zwraca kolekcję).</td>
+    </tr>
+    <tr>
+      <td><code>getElementsByTagName("znacznik")</code></td>
+      <td>Dostęp do wszystkich elementów o danym typie znacznika (np. &lt;p&gt;, &lt;div&gt;).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>4. Omów właściwości innerHTML, innerText, className (każdą osobno):</b></p>
+<ul>
+  <li><b>innerHTML</b> – właściwość pozwalająca na odczyt, modyfikację, wstawienie lub usunięcie kodu HTML wewnątrz elementu (np. w tabeli).</li>
+  <li><b>innerText</b> – umożliwia określenie lub odczyt tekstu (ciągu znaków) zawartego w elemencie, bez kodu HTML.</li>
+  <li><b>className</b> – pozwala na odczyt lub ustawienie klasy CSS przypisanej do elementu, co wpływa na jego stylowanie.</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Kod Zadania 11</title>
+<script>
+function okno_zamknij_dryg() {
+  window.close();
+}
+</script>
+</head>
+<body>
+<h2>Kod programu zadania 11 - Drygalski</h2>
+<form>
+<textarea cols="80" rows="25" readonly>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;Drygalski - Zadanie 11&lt;/title&gt;
+&lt;style&gt;
+  #wynik {
+    color: green;
+    font-size: 43px; /* 30 + 13 (numer dnia urodzenia) */
+    font-weight: bold;
+  }
+&lt;/style&gt;
+&lt;script&gt;
+function oblicz_sekundy_dryg() {
+  var D1_dryg = prompt("Podaj pierwszy dzień stycznia (D1):", "");
+  var D2_dryg = prompt("Podaj drugi dzień stycznia (D2):", "");
+  D1_dryg = parseInt(D1_dryg);
+  D2_dryg = parseInt(D2_dryg);
+  var roznica = D1_dryg - D2_dryg;
+  var sekundy = roznica * 86400;
+  var wynik = "Ilość sekund między dniami " + D1_dryg + " i " + D2_dryg + " to: " + sekundy + " sekund";
+  document.getElementById("wynik").innerText = wynik;
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body onload="oblicz_sekundy_dryg()"&gt;
+&lt;h2&gt;Drygalski - Zadanie 11 (Ile sekund)&lt;/h2&gt;
+&lt;div id="wynik"&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;input type="button" value="Zamknij okno" onclick="window.close()" /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+</form>
+<br />
+<input type="button" value="Zamknij okno" onclick="okno_zamknij_dryg()" />
+</body>
+</html>

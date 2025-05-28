@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zadanie 21 - Obliczenie V i Pc walca (drygalski)</title>
+  <script>
+    function V(r, h) {
+      const r_liczba = parseFloat(r);
+      const h_liczba = parseFloat(h);
+      const V_wynik = Math.PI * r_liczba * r_liczba * h_liczba;
+      document.getElementsByName('obj')[0].value = V_wynik.toFixed(2);
+      alert("V = " + V_wynik.toFixed(2) + " cm³");
+      document.getElementById('pokaz1').innerHTML = "V = " + V_wynik.toFixed(2) + " cm³";
+    }
+
+    function Pc(r, h) {
+      const r_liczba = parseFloat(r);
+      const h_liczba = parseFloat(h);
+      const Pc_wynik = 2 * Math.PI * r_liczba * r_liczba + 2 * Math.PI * r_liczba * h_liczba;
+      document.getElementsByName('pole')[0].value = Pc_wynik.toFixed(2);
+      alert("Pc = " + Pc_wynik.toFixed(2) + " cm²");
+      document.getElementById('pokaz2').innerHTML = "Pc = " + Pc_wynik.toFixed(2) + " cm²";
+    }
+  </script>
+</head>
+<body>
+  <h1>Pobliczanie objętości (V) i pola powierzchni (Pc) walca</h1>
+
+  <form name="formularz" action="#" onsubmit="V(this.promien.value,this.wysokosc.value); Pc(this.promien.value,this.wysokosc.value); return false;">
+    Podaj promień r = <input size="6" name="promien" required>
+    Podaj wysokość h = <input size="6" name="wysokosc" required>
+    <br><br>
+    <input type="submit" value="Oblicz">
+    <br><br>
+    V = <input size="10" name="obj" readonly>
+    Pc = <input size="10" name="pole" readonly>
+  </form>
+
+  <table>
+    <tr id="pokaz1" style="color: navy; font-weight: bold;"></tr>
+    <tr id="pokaz2" style="color: navy; font-weight: bold;"></tr>
+  </table>
+</body>
+</html>

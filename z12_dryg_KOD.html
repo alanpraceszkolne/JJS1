@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Drygalski - Kod Zadania 12</title>
+<script>
+function okno_zamknij_dryg() {
+  window.close();
+}
+</script>
+</head>
+<body>
+<h2>Kod programu zadania 12 - Drygalski</h2>
+<form>
+<textarea cols="80" rows="30" readonly>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;Drygalski - Zadanie 12&lt;/title&gt;
+&lt;style&gt;
+  #wynik {
+    color: green;
+    font-size: 43px; /* 30 + 13 */
+    font-weight: bold;
+  }
+&lt;/style&gt;
+&lt;script&gt;
+function oblicz_sekundy_godziny_dryg() {
+  var D1_dryg = prompt("Podaj pierwszy dzień stycznia (D1):", "");
+  var G1_dryg = prompt("Podaj godzinę pierwszego dnia (G1):", "");
+  var D2_dryg = prompt("Podaj drugi dzień stycznia (D2):", "");
+  var G2_dryg = prompt("Podaj godzinę drugiego dnia (G2):", "");
+
+  D1_dryg = parseInt(D1_dryg);
+  G1_dryg = parseInt(G1_dryg);
+  D2_dryg = parseInt(D2_dryg);
+  G2_dryg = parseInt(G2_dryg);
+
+  var dni_sekundy = (D1_dryg - D2_dryg) * 86400;
+  var godziny_sekundy = (G1_dryg - G2_dryg) * 3600;
+
+  var sekundy = dni_sekundy + godziny_sekundy;
+
+  var wynik = "Ilość sekund między dniami " + D1_dryg + " godz. " + G1_dryg + " i dniem " + D2_dryg + " godz. " + G2_dryg + " to: " + sekundy + " sekund";
+  document.getElementById("wynik").innerText = wynik;
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body onload="oblicz_sekundy_godziny_dryg()"&gt;
+&lt;h2&gt;Drygalski - Zadanie 12 (Ile sekund z godzinami)&lt;/h2&gt;
+&lt;div id="wynik"&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;input type="button" value="Zamknij okno" onclick="window.close()" /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+</form>
+<br />
+<input type="button" value="Zamknij okno" onclick="okno_zamknij_dryg()" />
+</body>
+</html>
