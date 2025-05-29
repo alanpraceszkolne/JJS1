@@ -1,0 +1,112 @@
+<h2>Podgląd kodu źródłowego</h2>
+<textarea rows="25" cols="100" readonly>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Zadanie40 Drygalski</title>
+  <style>
+    h1 { text-transform: uppercase; }
+    #wynik { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>PROSTE DZIAŁANIA</h1>
+  <h3>Alan Drygalski 3K</h3>
+  
+  <label for="a">Podaj pierwszą liczbę:</label>
+  <input type="number" id="a"><br><br>
+
+  <label for="b">Podaj drugą liczbę:</label>
+  <input type="number" id="b"><br><br>
+
+  <input type="button" value="DODAWANIE" onclick="suma_dry()">
+  <input type="button" value="ODEJMOWANIE" onclick="roznica_dry()">
+  <input type="button" value="MNOŻENIE" onclick="iloczyn_dry()">
+  <input type="button" value="DZIELENIE" onclick="iloraz_dry()">
+  <input type="button" value="TEORIA-Drygalski" onclick="teoria_dry()">
+
+  <div id="wynik"></div>
+
+  <script>
+    function suma_dry() {
+      let a = document.getElementById("a").value;
+      let b = document.getElementById("b").value;
+      if (a === "" || b === "") {
+        document.getElementById("wynik").innerHTML = "Proszę uzupełnić obie liczby.";
+      } else {
+        a = parseFloat(a); b = parseFloat(b);
+        let suma = (a + b).toFixed(2);
+        document.getElementById("wynik").innerHTML = "Wynik działania wynosi: " + suma;
+      }
+    }
+
+    function roznica_dry() {
+      let a = document.getElementById("a").value;
+      let b = document.getElementById("b").value;
+      if (a === "" || b === "") {
+        document.getElementById("wynik").innerHTML = "Proszę uzupełnić obie liczby.";
+      } else {
+        a = parseFloat(a); b = parseFloat(b);
+        let roznica = (a - b).toFixed(2);
+        document.getElementById("wynik").innerHTML = "Wynik działania wynosi: " + roznica;
+      }
+    }
+
+    function iloczyn_dry() {
+      let a = document.getElementById("a").value;
+      let b = document.getElementById("b").value;
+      if (a === "" || b === "") {
+        document.getElementById("wynik").innerHTML = "Proszę uzupełnić obie liczby.";
+      } else {
+        a = parseFloat(a); b = parseFloat(b);
+        let iloczyn = (a * b).toFixed(2);
+        document.getElementById("wynik").innerHTML = "Wynik działania wynosi: " + iloczyn;
+      }
+    }
+
+    function iloraz_dry() {
+      let a = document.getElementById("a").value;
+      let b = document.getElementById("b").value;
+      if (a === "" || b === "") {
+        document.getElementById("wynik").innerHTML = "Proszę uzupełnić obie liczby.";
+      } else {
+        a = parseFloat(a); b = parseFloat(b);
+        if (b === 0) {
+          document.getElementById("wynik").innerHTML = "Nie wolno dzielić przez zero.";
+        } else {
+          let iloraz = (a / b).toFixed(2);
+          document.getElementById("wynik").innerHTML = "Wynik działania wynosi: " + iloraz;
+        }
+      }
+    }
+
+    function teoria_dry() {
+      document.write("<font color=green size=4>pierwsza linia teorii</font><br>");
+      document.write("<font color=red size=4>&lt;label for=&quot;a&quot;&gt;Podaj pierwszą liczbę:&lt;/label&gt;&lt;input type=&quot;number&quot; id=&quot;a&quot;&gt;</font><br>");
+      document.write("<font color=green size=4>wytłumaczenia</font><br>");
+      document.write("<font color=red size=4>wykonanie numerycznego pola formularza z opisem 'Podaj pierwszą liczbę:' a nazwa pola to 'a'</font><br><br>");
+
+      document.write("<font color=green size=4>druga linia teorii</font><br>");
+      document.write("<font color=red size=4>&lt;input type=&quot;button&quot; value=&quot;DODAWANIE&quot; onclick=&quot;suma()&quot;&gt;</font><br>");
+      document.write("<font color=green size=4>wytłumaczenia</font><br>");
+      document.write("<font color=red size=4>Wykonanie przycisku, którego kliknięcie uruchamia funkcję suma()</font><br><br>");
+
+      document.write("<font color=green size=4>trzecia linia teorii</font><br>");
+      document.write("<font color=red size=4>var a = document.getElementById(&quot;a&quot;).value;</font><br>");
+      document.write("<font color=green size=4>wytłumaczenia</font><br>");
+      document.write("<font color=red size=4>wpisanie do zmiennej 'a' wartości z pola input o id 'a'</font><br><br>");
+
+      document.write("<font color=green size=4>czwarta linia teorii</font><br>");
+      document.write("<font color=red size=4>if (a == &quot;&quot; || b == &quot;&quot;)</font><br>");
+      document.write("<font color=green size=4>wytłumaczenia</font><br>");
+      document.write("<font color=red size=4>sprawdzenie, czy jedno z pól jest puste</font><br><br>");
+
+      document.write("<font color=green size=4>piąta linia teorii</font><br>");
+      document.write("<font color=red size=4>document.getElementById(&quot;wynik&quot;).innerHTML = &quot;Wynik działania wynosi: &quot; + suma;</font><br>");
+      document.write("<font color=green size=4>wytłumaczenia</font><br>");
+      document.write("<font color=red size=4>wyświetlenie wyniku działania w elemencie o id 'wynik'</font><br>");
+    }
+  </script>
+</body>
+</html>
