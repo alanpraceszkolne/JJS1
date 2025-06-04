@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Drygalski – Zadanie 46 KOD</title>
+  <style>
+    textarea {
+      width: 100%;
+      height: 400px;
+      font-family: monospace;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Kod źródłowy zadania 46 – Drygalski</h2>
+
+  <textarea readonly>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Sprawdzenie danych – Drygalski</title>
+</head>
+<body>
+  <div style="color:red; font-size:50px;">
+    <script>
+      let h_dry, a_dry;
+      
+      // Wczytywanie wysokości
+      do {
+        let liczba1 = prompt("Podaj wysokość (cm):", "");
+        h_dry = parseFloat(liczba1);
+      } while (h_dry <= 0);
+      
+      // Wczytywanie podstawy
+      do {
+        let liczba1 = prompt("Podaj podstawę (cm):", "");
+        a_dry = parseFloat(liczba1);
+      } while (!(a_dry > 0));
+      
+      // Obliczanie pola
+      let pole_dry = a_dry * h_dry / 2;
+      document.write("Pole = " + pole_dry.toFixed(2) + " cm²<br>");
+    </script>
+  </div>
+</body>
+</html>
+  </textarea>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Sprawdzenie trójkąta – Drygalski</title>
+</head>
+<body>
+  <div style="color:blue; font-size:40px;">
+    <script>
+      let a_dry, b_dry, c_dry;
+
+      do {
+        a_dry = parseFloat(prompt("Podaj bok a trójkąta:"));
+        b_dry = parseFloat(prompt("Podaj bok b trójkąta:"));
+        c_dry = parseFloat(prompt("Podaj bok c trójkąta:"));
+      } while (
+        !(a_dry > 0 && b_dry > 0 && c_dry > 0 &&
+          (a_dry + b_dry > c_dry) &&
+          (a_dry + c_dry > b_dry) &&
+          (b_dry + c_dry > a_dry))
+      );
+
+      document.write("Wczytano boki trójkąta: a=" + a_dry + ", b=" + b_dry + ", c=" + c_dry + "<br>");
+      document.write("Boki tworzą trójkąt.");
+    </script>
+  </div>
+</body>
+</html>

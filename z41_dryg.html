@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Rodzaje pętli w JavaScript</title>
+</head>
+<body>
+
+  <h1>Rodzaje pętli w JavaScript</h1>
+
+  <div id="petle-info"></div>
+
+  <script>
+    const petle = [
+      {
+        nazwa: "Pętla for",
+        konstrukcja: `for (let i = 0; i < 5; i++) {\n  // kod do wykonania\n}`,
+        opis: "Pętla 'for' wykonuje kod określoną liczbę razy. Stosowana, gdy znamy liczbę iteracji.",
+        schemat: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/For-loop-diagram.svg/500px-For-loop-diagram.svg.png"
+      },
+      {
+        nazwa: "Pętla while (kontrolowane wejście)",
+        konstrukcja: `while (warunek) {\n  // kod do wykonania\n}`,
+        opis: "Pętla 'while' sprawdza warunek przed każdą iteracją. Jeśli warunek jest fałszywy na początku, kod nie wykona się ani razu.",
+        schemat: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/While-loop-diagram.svg/500px-While-loop-diagram.svg.png"
+      },
+      {
+        nazwa: "Pętla do...while (kontrolowane wyjście)",
+        konstrukcja: `do {\n  // kod do wykonania\n} while (warunek);`,
+        opis: "Pętla 'do...while' wykonuje kod przynajmniej raz, ponieważ warunek jest sprawdzany po wykonaniu bloku.",
+        schemat: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Do-while-loop-diagram.svg/500px-Do-while-loop-diagram.svg.png"
+      }
+    ];
+
+    const container = document.getElementById("petle-info");
+
+    petle.forEach(petla => {
+      container.innerHTML += `
+        <h2>${petla.nazwa}</h2>
+        <p><strong>Konstrukcja:</strong></p>
+        <pre>${petla.konstrukcja}</pre>
+        <p><strong>Opis:</strong> ${petla.opis}</p>
+        <p><strong>Schemat blokowy:</strong></p>
+        <img src="${petla.schemat}" alt="Schemat ${petla.nazwa}" width="300"><hr>
+      `;
+    });
+  </script>
+
+</body>
+</html>

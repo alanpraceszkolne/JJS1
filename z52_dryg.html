@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zadanie 52 – Rysowanie prostokąta – Drygalski</title>
+  <style>
+    pre {
+      font-family: monospace;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rysowanie prostokąta z gwiazdek</h1>
+
+  <pre id="rysunek"></pre>
+
+  <script>
+    // Dane:
+    const nazwisko = "Drygalski";
+    const imie = "Alan";
+
+    // Obliczenia wymiarów:
+    const a_kow = (nazwisko.length % 4) + 5; // wysokość
+    const b_kow = (imie.length % 6) + 20;    // szerokość
+
+    let wynik = "";
+
+    // Pierwsza pętla: górna linia gwiazdek
+    for (let i = 0; i < b_kow; i++) {
+      wynik += "*";
+    }
+    wynik += "\n";
+
+    // Druga pętla: linie środkowe - pionowe gwiazdki na brzegach + spacje w środku
+    for (let i = 0; i < a_kow - 2; i++) {
+      wynik += "*";
+      for (let j = 0; j < b_kow - 2; j++) {
+        wynik += " ";
+      }
+      wynik += "*\n";
+    }
+
+    // Trzecia pętla: dolna linia gwiazdek
+    for (let i = 0; i < b_kow; i++) {
+      wynik += "*";
+    }
+
+    // Wyświetlenie rysunku
+    document.getElementById("rysunek").textContent = wynik;
+  </script>
+</body>
+</html>

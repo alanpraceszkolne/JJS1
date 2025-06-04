@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Drygalski – Zadanie 44</title>
+  <style>
+    .wynik {
+      color: navy;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Drygalski – Zadanie 44</h2>
+  <p>Ilość wykonania pętli = <strong>12</strong></p>
+  <p>Wielkość liter = <strong>41px</strong></p>
+
+  <div class="wynik" style="font-size: 41px;">
+    <script>
+      let imie_dry = "Alan";
+      let nazwisko_dry = "Drygalski";
+      let ile_razy_dry = 12;
+
+      for (let i_dry = 1; i_dry <= ile_razy_dry; i_dry++) {
+        if (i_dry % 2 === 1) {
+          document.write(i_dry + ": " + nazwisko_dry + "<br>");
+        } else {
+          document.write(i_dry + ": " + imie_dry + "<br>");
+        }
+      }
+    </script>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Drygalski – Zadanie 43 KOD</title>
+  <style>
+    textarea {
+      width: 100%;
+      height: 400px;
+      font-family: monospace;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+    #wynik {
+      font-size: 24px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Kod zadania 43:</h1>
+
+  <textarea readonly>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Drygalski – Zadanie 43</title>
+</head>
+<body>
+  <h1>Wszystkie liczby parzyste od 2 do podanej liczby</h1>
+  <div id="wynik" style="font-size: 24px; color: green;"></div>
+
+  <script>
+    // Wczytanie końca pętli
+    let kon_pet_dry = prompt("Podaj liczbę końcową (większą lub równą 2):");
+    kon_pet_dry = parseInt(kon_pet_dry);
+
+    // Sprawdzenie, czy liczba jest poprawna
+    if (isNaN(kon_pet_dry) || kon_pet_dry < 2) {
+      document.getElementById("wynik").innerHTML = "Błąd: wpisz liczbę większą lub równą 2.";
+    } else {
+      let tekst_dry = "";
+      for (let i_dry = 2; i_dry <= kon_pet_dry; i_dry++) {
+        if (i_dry % 2 === 0) {
+          tekst_dry += i_dry + " ";
+        }
+      }
+      document.getElementById("wynik").innerHTML = "Liczby parzyste: <br>" + tekst_dry;
+    }
+  </script>
+</body>
+</html>
+  </textarea>
+</body>
+</html>

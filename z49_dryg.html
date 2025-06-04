@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Obliczanie silni – Drygalski</title>
+</head>
+<body>
+  <h1>Obliczanie silni iteracyjnie</h1>
+  
+  <script>
+    // Wczytanie liczby n
+    let n_dry = prompt("Podaj liczbę n (całkowita nieujemna):", "0");
+    n_dry = parseInt(n_dry);
+
+    // Sprawdzenie poprawności wczytanej liczby
+    if (isNaN(n_dry) || n_dry < 0) {
+      document.write("Błąd: Podaj liczbę całkowitą nieujemną.");
+    } else {
+      let silnia_dry = 1;
+      
+      if (n_dry > 0) {
+        for (let i_dry = 1; i_dry <= n_dry; i_dry++) {
+          silnia_dry *= i_dry;
+        }
+      }
+      document.write(n_dry + "! = " + silnia_dry);
+    }
+  </script>
+</body>
+</html>
